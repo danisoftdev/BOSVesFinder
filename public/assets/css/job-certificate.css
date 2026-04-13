@@ -1,0 +1,247 @@
+/* Benmarine job certificate — screen + print */
+
+.bvf-cert-print-doc {
+	margin: 0;
+	padding: 1rem;
+	font-family: Georgia, "Times New Roman", serif;
+	background: #f0f0f0;
+	color: #111;
+}
+
+.bvf-cert-print-actions {
+	margin: 0 0 1rem;
+}
+
+.no-print {
+	display: block;
+}
+
+@media print {
+	.no-print {
+		display: none !important;
+	}
+	.bvf-cert-print-doc {
+		background: #fff;
+		padding: 0;
+	}
+	@page {
+		margin: 12mm;
+	}
+}
+
+.bvf-cert-sheet {
+	max-width: 210mm;
+	margin: 0 auto;
+	padding: 14mm 16mm;
+	background: #fff;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+	border: 1px solid #ddd;
+}
+
+@media print {
+	.bvf-cert-sheet {
+		box-shadow: none;
+		border: none;
+		max-width: none;
+		padding: 0;
+	}
+}
+
+.bvf-cert-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 1rem;
+	border-bottom: 2px solid #1a237e;
+	padding-bottom: 0.75rem;
+	margin-bottom: 1rem;
+}
+
+.bvf-cert-head__left {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.bvf-cert-head__logo {
+	display: block;
+	height: auto;
+	max-height: 56px;
+	width: auto;
+}
+
+.bvf-cert-head__company {
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: #1a237e;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+}
+
+.bvf-cert-head__tagline {
+	margin: 0.2rem 0 0;
+	font-size: 0.72rem;
+	font-style: italic;
+	color: #333;
+}
+
+.bvf-cert-head__right {
+	text-align: right;
+	font-size: 0.68rem;
+	line-height: 1.35;
+	max-width: 52%;
+}
+
+.bvf-cert-head__serial {
+	font-size: 0.85rem;
+	margin-bottom: 0.35rem;
+	color: #b71c1c;
+}
+
+.bvf-cert-head__branches {
+	margin-top: 0.25rem;
+	font-weight: 600;
+}
+
+.bvf-cert-form-title {
+	text-align: center;
+	font-size: 0.95rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	margin: 0.5rem 0 1rem;
+	border: 2px solid #000;
+	padding: 0.45rem 0.5rem;
+}
+
+.bvf-cert-block {
+	margin-bottom: 1rem;
+}
+
+.bvf-cert-block--boxed {
+	border: 1px solid #000;
+	padding: 0.65rem 0.75rem;
+}
+
+.bvf-cert-block--remarks {
+	min-height: 120px;
+}
+
+.bvf-cert-row {
+	margin-bottom: 0.65rem;
+}
+
+.bvf-cert-row--2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.75rem;
+}
+
+.bvf-cert-row--3 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 0.5rem;
+}
+
+@media (max-width: 700px) {
+	.bvf-cert-head {
+		flex-direction: column;
+	}
+	.bvf-cert-head__right {
+		text-align: left;
+		max-width: none;
+	}
+	.bvf-cert-row--2,
+	.bvf-cert-row--3 {
+		grid-template-columns: 1fr;
+	}
+}
+
+.bvf-cert-label {
+	display: block;
+	font-size: 0.7rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 0.15rem;
+}
+
+.bvf-cert-line {
+	min-height: 1.35rem;
+	border-bottom: 1px solid #000;
+	font-size: 0.9rem;
+	padding: 0.1rem 0;
+}
+
+.bvf-cert-line--tall {
+	min-height: 2.8rem;
+}
+
+.bvf-cert-section-title {
+	font-weight: 700;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	border: 1px solid #000;
+	text-align: center;
+	padding: 0.35rem;
+	margin: 0.75rem 0 0.35rem;
+	background: #fafafa;
+}
+
+.bvf-cert-certify-intro {
+	margin: 0 0 0.75rem;
+	font-size: 0.88rem;
+	line-height: 1.4;
+}
+
+.bvf-cert-remarks {
+	font-size: 0.9rem;
+	line-height: 1.45;
+	min-height: 100px;
+	white-space: pre-wrap;
+}
+
+.bvf-cert-signatures {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	margin-top: 1.5rem;
+}
+
+.bvf-cert-sig-label {
+	display: block;
+	font-size: 0.72rem;
+	font-weight: 700;
+	margin-top: 0.25rem;
+	text-transform: uppercase;
+}
+
+.bvf-cert-footer-note {
+	text-align: center;
+	font-size: 0.68rem;
+	margin-top: 1.25rem;
+	color: #333;
+}
+
+/* Edit form (app layout) */
+.bvf-job-cert-form-wrap {
+	max-width: 44rem;
+}
+
+.bvf-job-cert-form .bvf-job-cert-h2 {
+	font-size: 1rem;
+	margin: 1.25rem 0 0.5rem;
+	padding-bottom: 0.25rem;
+	border-bottom: 1px solid #ccc;
+}
+
+.bvf-job-cert-grid-2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.75rem 1rem;
+}
+
+@media (max-width: 640px) {
+	.bvf-job-cert-grid-2 {
+		grid-template-columns: 1fr;
+	}
+}

@@ -1,0 +1,53 @@
+.bvf-fleet-map-wrap {
+	position: relative;
+	width: 100%;
+	min-height: 280px;
+	border-radius: 8px;
+	overflow: hidden;
+	border: 1px solid rgba(0, 0, 0, 0.12);
+	background: #e8eef2;
+}
+
+.bvf-fleet-map-wrap--loading .bvf-fleet-map__loading {
+	opacity: 1;
+	visibility: visible;
+}
+
+.bvf-fleet-map__loading {
+	position: absolute;
+	inset: 0;
+	z-index: 500;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(255, 255, 255, 0.82);
+	font-size: 0.95rem;
+	color: #37474f;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s ease;
+	pointer-events: none;
+}
+
+.bvf-fleet-map {
+	width: 100%;
+	height: 100%;
+	min-height: 280px;
+}
+
+.bvf-fleet-map__denied {
+	padding: 1rem;
+	color: #666;
+}
+
+.bvf-marker-moving {
+	filter: hue-rotate(85deg);
+}
+
+.bvf-marker-idle {
+	filter: hue-rotate(35deg) saturate(0.85);
+}
+
+.bvf-marker-offline {
+	filter: grayscale(0.7) brightness(0.95);
+}

@@ -1,0 +1,6 @@
+# BOSVesFinder — session-based app; discourage indexing of authenticated areas.
+User-agent: *
+Disallow: /app/
+Disallow: /api/
+Allow: /login
+Allow: /assets/

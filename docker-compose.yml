@@ -1,0 +1,45 @@
+# BOSVesFinder — PHP app + MySQL (no WordPress).
+# From repo root:
+#   composer install
+#   docker compose up -d --build
+#   docker compose exec app php bin/seed.php
+# Open http://localhost:8080/ (admin@example.local / admin after seed)
+
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: vesfinder
+      MYSQL_ROOT_PASSWORD: vesfinder_root
+    ports:
+      - "3307:3306"
+    volumes:
+      - bvf_mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-pvesfinder_root"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_NAME: vesfinder
+      DB_USER: root
+      DB_PASSWORD: vesfinder_root
+      APP_URL: http://localhost:8080
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  bvf_mysql_data:

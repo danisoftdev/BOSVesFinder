@@ -1,0 +1,8 @@
+# Local-only exports (e.g. wp-config copy from Docker)
+local/
+
+# In-repo WordPress core + WP-CLI (scripts/run-local-repo.ps1)
+.local/
+
+/vendor/
+.env
